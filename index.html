@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura Reklam | Kurumsal Endüstriyel Çözümler</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2215%22 fill=%22%230a0a0a%22/><text x=%2250%22 y=%2243%22 font-size=%2228%22 font-family=%22System-UI,Arial,sans-serif%22 font-weight=%22900%22 fill=%22%23d4af37%22 text-anchor=%22middle%22 letter-spacing=%222%22>AURA</text><text x=%2250%22 y=%2278%22 font-size=%2222%22 font-family=%22System-UI,Arial,sans-serif%22 font-weight=%22700%22 fill=%22%23cccccc%22 text-anchor=%22middle%22 letter-spacing=%221%22>REKLAM</text></svg>">
+
+    <style>
+        /* --- RENK PALETİ VE GENEL AYARLAR --- */
+        :root {
+            --bg-dark: #0a0a0a;       
+            --bg-pure-black: #000000;
+            --gold-premium: #d4af37; 
+            --gold-hover: #bfa030;   
+            --text-white: #ffffff;   
+            --text-gray: #ccd6f6;    
+            --card-bg: #121212;      
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-white);
+            line-height: 1.6;
+            padding-top: 80px; /* Header altında kalmasın diye */
+        }
+
+        /* --- NAVİGASYON (HEADER) --- */
+        header {
+            background-color: #0a0a0a;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        /* --- PREMIUM LOGOTYPE TASARIMI --- */
+        .logo {
+            font-weight: 700;
+            font-size: 24px;
+            letter-spacing: 3px;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            text-transform: uppercase;
+        }
+
+        .logo::before {
+            content: '';
+            display: inline-block;
+            width: 3px;
+            height: 22px;
+            background-color: #d4af37;
+            margin-right: 10px;
+        }
+
+        .logo span {
+            color: #d4af37;
+            font-weight: 300;
+            margin-left: 5px;
+        }
+
+        nav a {
+            color: var(--text-white);
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: 400;
+            font-size: 14px;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--gold-premium);
+        }
+
+        .btn-teklif {
+            background-color: transparent;
+            border: 1px solid var(--gold-premium);
+            color: var(--gold-premium);
+            padding: 10px 20px;
+            font-weight: 500;
+            font-size: 13px;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .btn-teklif:hover {
+            background-color: var(--gold-premium);
+            color: var(--bg-pure-black);
+        }
+
+        /* --- HERO (GİRİŞ) ALANI --- */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.95)), url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1920') no-repeat center center/cover;
+            height: calc(100vh - 80px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 0 8%;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .hero h1 {
+            font-size: 46px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            line-height: 1.2;
+            letter-spacing: 2px;
+        }
+
+        .hero h1 span {
+            color: var(--gold-premium);
+        }
+
+        .hero p {
+            font-size: 16px;
+            max-width: 650px;
+            margin-bottom: 40px;
+            color: #a0a0a0;
+            font-weight: 300;
+        }
+
+        .btn-main {
+            background-color: var(--gold-premium);
+            color: var(--bg-pure-black);
+            padding: 15px 35px;
+            font-weight: 600;
+            font-size: 13px;
+            text-decoration: none;
+            letter-spacing: 2px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-main:hover {
+            background-color: var(--gold-hover);
+        }
+
+        /* --- VİZYON & MİSYON BÖLÜMÜ --- */
+        .vision-section {
+            padding: 80px 8%;
+            background-color: var(--bg-dark);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.05);
+        }
+
+        .vision-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .vision-text h2 {
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        .vision-text h2 span {
+            color: var(--gold-premium);
+        }
+
+        .vision-text p {
+            color: #a0a0a0;
+            font-size: 15px;
+            font-weight: 300;
+        }
+
+        .cards-sub-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .vision-box {
+            background-color: var(--card-bg);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            padding: 25px;
+        }
+
+        .vision-box h3 {
+            font-size: 18px;
+            color: var(--gold-premium);
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .vision-box p {
+            color: var(--text-white);
+            font-size: 14px;
+            font-weight: 300;
+        }
+
+        /* --- HİZMETLERİMİZ BÖLÜMÜ (3'LÜ SİMETRİK DÜZEN) --- */
+        .services-section {
+            padding: 80px 8%;
+            background-color: var(--bg-pure-black);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.05);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .section-header h2 span {
+            color: var(--gold-premium);
+        }
+
+        .section-header p {
+            color: #a0a0a0;
+            font-size: 15px;
+            font-weight: 300;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* Bilgisayarda yan yana tam 3 sütun */
+            gap: 30px;
+        }
+
+        .service-card {
+            height: 300px;
+            padding: 30px 25px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            overflow: hidden;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .service-card .card-bg-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            z-index: 1;
+        }
+
+        .service-card .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.95) 40%, rgba(0,0,0,0.6) 100%);
+            z-index: 2;
+        }
+
+        .service-card .card-content {
+            position: relative;
+            z-index: 3;
+        }
+
+        .service-num {
+            font-size: 12px;
+            color: var(--gold-premium);
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: block;
+            letter-spacing: 1px;
+        }
+
+        .service-card h3 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--text-white);
+        }
+
+        .service-card p {
+            color: var(--text-gray);
+            font-size: 13px;
+            font-weight: 300;
+        }
+
+        /* --- İLETİŞİM BÖLÜMÜ --- */
+        .contact-section {
+            padding: 80px 8%;
+            background-color: var(--bg-dark);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .contact-info h2 {
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .contact-info h2 span {
+            color: var(--gold-premium);
+        }
+
+        .contact-info p.lead-text {
+            color: #a0a0a0;
+            font-size: 15px;
+            font-weight: 300;
+            margin-bottom: 30px;
+        }
+
+        .info-item {
+            margin-bottom: 25px;
+            border-left: 2px solid var(--gold-premium);
+            padding-left: 15px;
+        }
+
+        .info-item label {
+            display: block;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--gold-premium);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .info-item p {
+            font-size: 16px;
+            color: var(--text-white);
+        }
+
+        .contact-form {
+            background-color: var(--card-bg);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            padding: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 12px;
+            color: #a0a0a0;
+            margin-bottom: 8px;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            background-color: #1a1a1a;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 12px;
+            color: var(--text-white);
+            font-size: 14px;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--gold-premium);
+        }
+
+        .btn-submit {
+            width: 100%;
+            background-color: var(--gold-premium);
+            color: var(--bg-pure-black);
+            border: none;
+            padding: 14px;
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: 2px;
+            cursor: pointer;
+        }
+
+        /* --- FOOTER (ALT BİLGİ) --- */
+        footer {
+            background-color: var(--bg-pure-black);
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+            padding: 30px 8%;
+            text-align: center;
+            font-size: 12px;
+            color: #666666;
+            letter-spacing: 1px;
+        }
+
+        footer span {
+            color: var(--gold-premium);
+        }
+
+        /* ======================================================== */
+        /* 📱 JİLET GİBİ MOBİL UYUMLULUK VE SİMETRİ MEDİA QUERİES 📱 */
+        /* ======================================================== */
+        
+        /* Lapotoplar ve Büyük Tabletler İçin Düzenlemeler */
+        @media (max-width: 1200px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr); /* 2'li sıraya düşer */
+            }
+        }
+
+        /* Cep Telefonları ve Küçük Tabletler İçin Düzenlemeler */
+        @media (max-width: 991px) {
+            header {
+                padding: 15px 5%;
+                flex-direction: column; /* Menüyü alt alta topla */
+                gap: 15px;
+                text-align: center;
+                position: relative; /* Mobilde yukarı kayıp ezmesin */
+            }
+            
+            body {
+                padding-top: 0;
+            }
+
+            nav {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+
+            nav a {
+                margin-left: 0;
+                margin: 0 10px;
+                font-size: 13px;
+            }
+
+            .btn-teklif {
+                width: 100%;
+                text-align: center;
+                margin-top: 5px;
+            }
+
+            .hero {
+                height: auto;
+                padding: 80px 5%;
+                align-items: center;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .vision-container, .contact-container {
+                grid-template-columns: 1fr; /* Sütunları teke düşür, alt alta sıralansın */
+                gap: 30px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr; /* Mobilde dümdüz alt alta listeleme */
+                gap: 20px;
+            }
+
+            .vision-section, .services-section, .contact-section {
+                padding: 60px 5%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 26px;
+            }
+            .logo {
+                font-size: 20px;
+            }
+            .contact-form {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">AURA<span>REKLAM</span></div>
+        <nav>
+            <a href="#anasayfa">Ana Sayfa</a>
+            <a href="#kurumsal">Vizyon</a>
+            <a href="#hizmetler">Hizmetler</a>
+            <a href="#iletisim">İletişim</a>
+        </nav>
+        <a href="#iletisim" class="btn-teklif">KURUMSAL TEKLİF AL</a>
+    </header>
+
+    <section id="anasayfa" class="hero">
+        <h1>Markanız İçin<br><span>Endüstriyel</span> Çözümler.</h1>
+        <p>Aura Reklam; tabela sistemlerinden açık hava reklamcılığına, geniş format baskıdan kurumsal matbaa çözümlerine kadar tüm operasyonlarınızı yüksek kalite standartlarında yönetir.</p>
+        <a href="#hizmetler" class="btn-main">ÇÖZÜMLERİMİZİ İNCELEYİN</a>
+    </section>
+
+    <section id="kurumsal" class="vision-section">
+        <div class="vision-container">
+            <div class="vision-text">
+                <h2>Kurumsal <span>Duruşumuz</span></h2>
+                <p>Aura Reklam olarak, yalnızca reklam üretmiyoruz; markanızın ciddiyetini, gücünü ve kalitesini hedef kitlenize aktaracak fiziksel ve görsel imzayı atıyoruz. Her projeyi bir sanat eseri ve kurumsal bir sorumluluk olarak ele alıyoruz.</p>
+            </div>
+            <div class="cards-sub-grid">
+                <div class="vision-box">
+                    <h3>Misyonumuz</h3>
+                    <p>En yüksek malzeme kalitesi ve kusursuz işçilikle, işletmelerin kurumsal kimliklerini dış dünyaya en prestijli, en resmi ve hatasız şekilde yansıtacak endüstriyel reklam çözümleri sunmak.</p>
+                </div>
+                <div class="vision-box">
+                    <h3>Vizyonumuz</h3>
+                    <p>Açık hava reklamcılığı ve kurumsal üretim sektoründe; teknolojimiz, disiplinli çalışma ahlakımız ve elit tasarımlarımızla akla gelen ilk kurumsal çözüm ortağı olmak.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="hizmetler" class="services-section">
+        <div class="section-header">
+            <h2>Üretim <span>Kategorilerimiz</span></h2>
+            <p>İleri teknoloji parkurumuz ve uzman kadromuzla A'dan Z'ye kurumsal reklam üretimi gerçekleştiriyoruz.</p>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="card-bg-img" style="background-image: url('https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=600');"></div>
+                <div class="overlay"></div>
+                <div class="card-content">
+                    <span class="service-num">01 / ENDÜSTRİYEL REKLAM</span>
+                    <h3>Tabela Sistemleri</h3>
+                    <p>Işıklı, kutu harf, totem ve paslanmaz krom tabela çözümleri ile firmanızın vizyonunu dış mekana en prestijli şekilde yansıtıyoruz.</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="card-bg-img" style="background-image: url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=600');"></div>
+                <div class="overlay"></div>
+                <div class="card-content">
+                    <span class="service-num">02 / DIŞ MEKAN</span>
+                    <h3>Branda ve Vinil Baskı</h3>
+                    <p>Büyük ölçekli dış mekan projeleri, cephe giydirmeleri ve organizasyonlar için yüksek çözünürlüklü, hava şartlarına dayanıklı dijital baskı hizmeti.</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="card-bg-img" style="background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=600');"></div>
+                <div class="overlay"></div>
+                <div class="card-content">
+                    <span class="service-num">03 / MİMARİ UYGULAMA</span>
+                    <h3>Folyo & Cam Filmi</h3>
+                    <p>Ofis içi bölmeler, vitrin tasarımları ve dekoratif uygulamalar için özel kesim mat, parlak veya kumlama folyo uygulamaları.</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="card-bg-img" style="background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=600');"></div>
+                <div class="overlay"></div>
+                <div class="card-content">
+                    <span class="service-num">04 / ÖZEL BASKI</span>
+                    <h3>One Way Vision</h3>
+                    <p>Binalarınızın dış cephe camlarında dışarıdan içerisinin görünmesini engelleyen, ancak içeriden dışarısının net izlenebildiği delikli kurumsal delikli folyo uygulamaları.</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="card-bg-img" style="background-image: url('https://images.unsplash.com/photo-1616469829581-73993eb86b02?q=80&w=600');"></div>
+                <div class="overlay"></div>
+                <div class="card-content">
+                    <span class="service-num">05 / MATBAA</span>
+                    <h3>Broşür & Kartvizit</h3>
+                    <p>Markanızın elden ele dolaşan yüzü: Özel laklı, kabartmalı kurumsal kartvizitler, jilet gibi katlanmış broşürler ve kurumsal kimlik baskıları.</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="card-bg-img" style="background-image: url('https://images.unsplash.com/photo-1513151233558-d860c5398176?q=80&w=600');"></div>
+                <div class="overlay"></div>
+                <div class="card-content">
+                    <span class="service-num">06 / KURUMSAL TANITIM</span>
+                    <h3>Promosyon Ürünleri</h3>
+                    <p>Markanıza özel baskılı kalemler, ajandalar, kurumsal logolu çantalar ve firmanızın prestijini her an hatırlatacak hediyelik ürün tasarımları.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="iletisim" class="contact-section">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2>Kurumsal <span>İletişim</span></h2>
+                <p class="lead-text">Projeleriniz için kurumsal fiyat teklifi almak veya imalathanemizi ziyaret etmek için bizimle iletişime geçebilirsiniz.</p>
+                
+                <div class="info-item">
+                    <label>Genel Müdür / Yetkili</label>
+                    <p>Taha GENCAN</p>
+                </div>
+
+                <div class="info-item">
+                    <label>Doğrudan İletişim Hattı</label>
+                    <p>0534 309 58 20</p>
+                </div>
+
+                <div class="info-item">
+                    <label>Üretim & İmalathane</label>
+                    <p>Ortapınar İş Merkezi, Fevzi Çakmak, 4. Cd. No: 2 D:10,<br>06000 Sincan / Ankara</p>
+                </div>
+            </div>
+
+            <form class="contact-form" action="https://formspree.io/f/mdavpwpl" method="POST">
+                <div class="form-group">
+                    <label>Adınız Soyadınız / Firma Unvanı</label>
+                    <input type="text" name="Musteri_Adi_Firma" required placeholder="Örn: Aura Teknoloji A.Ş.">
+                </div>
+                <div class="form-group">
+                    <label>İletişim Numarası</label>
+                    <input type="tel" name="Telefon_Numarasi" required placeholder="0555 555 55 55">
+                </div>
+                <div class="form-group">
+                    <label>Talep Edilen Hizmet</label>
+                    <input type="text" name="Talep_Edilen_Hizmet" required placeholder="Örn: Tabela Sistemleri">
+                </div>
+                <div class="form-group">
+                    <label>Proje Detayları</label>
+                    <textarea name="Proje_Detaylari" rows="4" required placeholder="Ölçüler ve malzeme detayları..."></textarea>
+                </div>
+                <button type="submit" class="btn-submit">PROJE TALEBİ GÖNDER</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2026 <span>AURA REKLAM</span>. Tüm Hakları Saklıdır. | Endüstriyel Reklam Çözüm Ortağı.
+    </footer>
+
+</body>
+</html>
